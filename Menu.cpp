@@ -35,6 +35,7 @@ void Menu::printMenu()
 		cout << "Command: ";
 		setChoice();
 		processChoice();
+		cout << '\n';
 	} while (choice != 'x');
 }
 
@@ -124,20 +125,65 @@ void Menu::generateRandomSeq()
 void Menu::generateRandomSeqTo()
 {
 	int input = 1;
+	char in = ' ';
 	cout << "How many sequences do you want to create up to?: ";
 	cin >> input;
+	if(cin.fail())
+	{
+		cout << "INVALID INPUT!!\n";
+		cin.clear();
+		input = 1;
+	}
 	cout << "What method would you like to us ((i)nsertion, "
 		<<"(s)election, (m)erge, or (q)uick sort?: ";
+	cin >> in;
 
-	cout << '\n';
-	for (int i = 1; i < input; i++)
+	switch(in)
 	{
-		delete sort;
-		sort = new Sorter(i);
-		sort->quickSort(0, sort->get_size()-1);
-		cout << "Sequence of size " << i << " : ";
-		sort->printLess();
+	case 'i':
+		for (int i = 1; i <= input; i++)
+		{
+			delete sort;
+			sort = new Sorter(i);
+			sort->insertionSort();
+			cout << "\nSequence of size " << i << " : ";
+			sort->printLess();
+		}
+		break;
+	case 's':
+		for (int i = 1; i <= input; i++)
+		{
+			delete sort;
+			sort = new Sorter(i);
+			sort->selectionSort();
+			cout << "\nSequence of size " << i << " : ";
+			sort->printLess();
+		}
+		break;
+	case 'm':
+		for (int i = 1; i <= input; i++)
+		{
+			delete sort;
+			sort = new Sorter(i);
+			sort->mergeSort(0, i-1);
+			cout << "\nSequence of size " << i << " : ";
+			sort->printLess();
+		}
+		break;
+	case 'q':
+		for (int i = 1; i <= input; i++)
+		{
+			delete sort;
+			sort = new Sorter(i);
+			sort->quickSort(0, i-1);
+			cout << "\nSequence of size " << i << " : ";
+			sort->printLess();
+		}
+		break;
+	default:
+		cout << "ERROR: INVALID INPUT";
 	}
+	
 }
 
 
