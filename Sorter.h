@@ -38,9 +38,17 @@ public:
 	*/
 	void selectionSort();
 
-	void mergeSort();
+	void quickSort(int left, int right);
+
+	void merge(int l, int m, int r);
+
+	void mergeSort(int l, int r);
 
 	vector<int>* getSeq();
+
+	int get_size();
+
+	void printLess();
 
 private:
 	vector<int> seq; // A sequence of ints

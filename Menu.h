@@ -14,6 +14,7 @@ public:
 	void processChoice();
 	void createSequence();
 	void generateRandomSeq();
+	void generateRandomSeqTo();
 
 private:
 	char choice;
