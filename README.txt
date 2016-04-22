@@ -18,13 +18,18 @@ Then to excute use the command: ./HW9
 
 INSTRUCTIONS:
   The program will prompt the user with the choices:
+    a: generate 20 sequences and find the average comparisons.
     r: generate random sequence of n size.
+    g: to generate random sequences of sizes going to n
     c: create a sequence with integers given by user.
     p: print the sequence of integers.
     i: use the insertion sort method to sort the sequence of integers.
     m: use the merge sort method to sort the sequence of integers.
     s: use the selection sort method to sort the sequence of integers.
     q: use the quick sort method to sort the sequence of integers.
+
+There are measures in place to catch most input exceptions, but to make sure there is no errors please try to only enter 
+valid input.
     
 ======================
 PROGRAM DESCRIPTION:
@@ -69,6 +74,9 @@ FUNCTIONS:
 
   int get_size():
     Returns the size of the sequence of numbers being sorted.
+  
+  int get_counter():
+    Returns int counter, the number of comparisons made.
 
   void printLess():
     Prints the number of comparisons that the previous sort took.
@@ -107,7 +115,10 @@ FUNCTIONS:
     allow you to enter a number and the program will create that many random sequences.
     Such as if the user inputs 6400, the program will create 6400 random sequences and sort them.
 
+  void averageComparisons():
+    Generates the average comparisons each sorting method takes for n = {100, 200, 400, 800, 1600, 3200, 6400}.
+
 PRIVATE:
-  char choice:  
-  Sorter *sort:  
+  char choice: The command the user inputs. 
+  Sorter *sort: The Sorter object that will handle the sequences of integers.
 
