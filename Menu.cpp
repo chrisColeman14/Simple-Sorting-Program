@@ -97,6 +97,12 @@ void Menu::createSequence()
 	vector<int> *seq;
 	cout << "Size of sequence: ";
 	cin >> s;
+	if (cin.fail())
+	{
+		cout << "INVALID INPUT!!\n";
+		cin.clear();
+		s = 1;
+	}
 	delete sort;
 	sort = new Sorter(s);
 	seq = sort->getSeq();
@@ -116,6 +122,13 @@ void Menu::generateRandomSeq()
 	int input = 1;
 	cout << "Size of sequence: ";
 	cin >> input;
+	if (cin.fail())
+	{
+		cout << "INVALID INPUT!!\n";
+		cin.clear();
+		cin.ignore(1);
+		input = 1;
+	}
 
 	delete sort;
 	sort = new Sorter(input);
